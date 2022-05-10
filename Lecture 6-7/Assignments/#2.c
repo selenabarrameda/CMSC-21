@@ -37,7 +37,6 @@ int main(void){
 			else{
 				printf("%d\t", road_networks[i][j]);				 // Printing of the road networks
 			}
-			
 			if (j == 8){			// The next print will be on the next line
 				printf("\n");		// For design purposes
 			}	   
@@ -58,12 +57,24 @@ int main(void){
 		printf("At point: %c \n", location);					// Print user's current location
 		
 		switch(location){
-			case 'E':
-				printf("point: D arrived to charging station");	// Only point E is near to charging station D. 
+			// For the case of A, which is the only point that needs to get to another point before reaching a charging station
+			// The points where C is the charging station
+			case 'A':											
+				printf("Now at point: B\n");
+			case 'B':
+			case 'F':
+				printf("point: C is a charging station");
 				break;
-				
-			default:
-				printf("point: C arrived to charging station");	// The rest are close to charging station C. 
+			
+			// The points where D is the charging station
+			case 'E':
+			case 'G':
+				printf("point: D is a charging station");
+				break;
+			
+			// As for point H, it cannot go to either C or D. 
+			case 'H':
+				printf("No path to a charging station");
 		}
 	}	
 }
